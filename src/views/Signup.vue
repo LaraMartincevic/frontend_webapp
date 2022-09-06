@@ -92,7 +92,7 @@ export default {
     signup() {
       console.log("called");
       axios
-        .post("http://localhost:3000/register", this.credentials)
+        .post("https://crochetaway.herokuapp.com/register", this.credentials)
         .then((response) => {
           console.log(response);
           if (response.data) {

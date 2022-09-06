@@ -51,11 +51,6 @@ const routes = [
     name: "test",
     component: () => import("../views/test.vue"),
   },
-  {
-    path: "/pdf",
-    name: "pdf",
-    component: () => import("../views/PDF.vue"),
-  },
 ];
 
 const router = new VueRouter({
