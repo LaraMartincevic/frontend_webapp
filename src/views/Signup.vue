@@ -97,9 +97,6 @@ export default {
           console.log(response);
           if (response.data) {
             console.log(response.data);
-            // this.$router.push({
-            //   name: "test",
-            // });
           }
         });
     },
