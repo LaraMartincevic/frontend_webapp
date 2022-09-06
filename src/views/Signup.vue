@@ -11,6 +11,7 @@
               <label for="exampleInputName">Ime</label>
               <input
                 type="ime"
+                v-model="credentials.ime"
                 class="form-control"
                 id="exampleInputName"
                 placeholder="Marko"
@@ -24,6 +25,7 @@
               <label for="exampleInputPrezime">Prezime</label>
               <input
                 type="prezime"
+                v-model="credentials.prezime"
                 class="form-control"
                 id="exampleInputPrezime"
                 placeholder="Markić"
@@ -41,12 +43,15 @@
               <label for="exampleInputEmail">Email</label>
               <input
                 type="email"
+                v-model="credentials.email"
                 class="form-control"
                 id="exampleInputemail"
                 placeholder="marko21@example.com"
               />
             </div>
-            <button type="signup" class="btn btn-primary">Signup</button>
+            <button type="button" @click="signup" class="btn btn-primary">
+              Signup
+            </button>
           </form>
         </div>
         <div class="col">
@@ -55,6 +60,7 @@
               <label for="exampleInputPassword1">Password</label>
               <input
                 type="password"
+                v-model="credentials.password"
                 class="form-control"
                 id="exampleInputPassword1"
                 placeholder="lozinka123"
@@ -64,47 +70,41 @@
         </div>
       </div>
     </div>
-    <!--
-    <div class="container">
-      <div class="row">
-        <div class="col-sm"></div>
-        <div class="col-sm">
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enteremail"
-              />
-              <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your email with anyone else.</small
-              >
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
-            </div>
-
-            <button type="signup" class="btn btn-primary">Signup</button>
-          </form>
-        </div>
-        <div class="col-sm"></div>
-      </div>
-    </div>
-    -->
   </div>
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  name: "Signup",
+  data() {
+    return {
+      credentials: {
+        ime: "",
+        prezime: "",
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    signup() {
+      console.log("called");
+      axios
+        .post("http://localhost:3000/register", this.credentials)
+        .then((response) => {
+          console.log(response);
+          if (response.data) {
+            console.log(response.data);
+            // this.$router.push({
+            //   name: "test",
+            // });
+          }
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -119,17 +119,17 @@ export default {};
 }
 */
 h1 {
-  margin: auto;
+  margin: 50px auto;
   width: 600px;
-  height: 200px;
+  height: 100px;
   font-family: "Times New Roman", Times, serif;
   font-size: 49px;
 }
 
 h2 {
   margin: auto;
-  width: 600px;
-  height: 200px;
+  width: 500px;
+  height: 170px;
   font-family: "Times New Roman", Times, serif;
   font-size: 25px;
   text-align: center;

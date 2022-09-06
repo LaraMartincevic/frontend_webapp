@@ -22,11 +22,47 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      <p>
+        Na ovoj stranici pronaći će te video tutorial od HappyBerryCrochet kako
+        napraviti mini jagodu. Video je brz i jednostavan za pratiti, a ispod
+        vidjeti će te primjere kako su jagode ispale.
+      </p>
+
+      <v-carousel>
+        <v-carousel-item
+          v-for="(item, i) in items"
+          :key="i"
+          :src="item.src"
+          reverse-transition="fade-transition"
+          transition="fade-transition"
+        ></v-carousel-item>
+      </v-carousel>
     </section>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        {
+          src: require("../assets/jagoda_nausnice.jpeg"),
+        },
+        {
+          src: require("../assets/jagode.jpeg"),
+        },
+        {
+          src: require("../assets/jagoda_deform.jpeg"),
+        },
+        {
+          src: require("../assets/jagoda_sky.jpeg"),
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style scoped>
 section {
@@ -68,5 +104,22 @@ body {
   80% {
     transform: rotateY(360deg);
   }
+}
+
+p {
+  text-align: justify;
+  margin-right: 650px;
+  color: white;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+  padding-top: 50px;
+}
+
+.v-carousel {
+  padding-top: 50px;
+  margin-right: 500px;
+  margin-left: -150px;
+  width: 900px;
 }
 </style>

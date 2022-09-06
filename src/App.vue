@@ -6,6 +6,7 @@
       <v-spacer></v-spacer>
 
       <v-btn to="/home" text rounded>Home</v-btn>
+      <v-btn to="/about" text rounded>About</v-btn>
       <v-btn to="/login" text rounded>Login</v-btn>
       <v-btn to="/signup" text rounded>Signup</v-btn>
     </v-app-bar>
@@ -55,11 +56,7 @@ export default {
           icon: "mdi-food-apple-outline",
           to: "/jagoda",
         },
-        {
-          title: "Ostali radovi",
-          icon: "mdi-image-multiple-outline",
-          to: "/radovi",
-        },
+ 
       ],
     };
   },
